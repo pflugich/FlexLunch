@@ -59,7 +59,11 @@ export class OptionsService {
    */
   private manageUserName(): void {
     if (this.userName.length === 0) {
-      this.nameDialogRef = this.dialog.open(UsernameInputComponent);
+      this.nameDialogRef = this.dialog.open(UsernameInputComponent, {
+        id: 'username-dialog',
+        closeOnNavigation: false,
+        disableClose: true
+      });
       this.nameDialogRef.afterClosed().subscribe(result => {
         this.setUsername(result);
         this.userName$.next(result);

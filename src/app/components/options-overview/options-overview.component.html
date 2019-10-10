@@ -1,3 +1,12 @@
 <div class="options-container" *ngFor="let option of options">
-  <div (click)="showOption(option.name)" class="overview-option">{{ option.name }}</div>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      {{ option.name }}
+    </mat-expansion-panel-header>
+    <mat-card *ngFor="let time of option.times">
+      <mat-card-title>
+        {{ time.time }}
+      </mat-card-title>
+    </mat-card>
+  </mat-expansion-panel>
 </div>

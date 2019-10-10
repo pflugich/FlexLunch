@@ -12,7 +12,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule,
+  MatExpansionModule
 } from '@angular/material';
 import { OptionsOverviewComponent } from './components/options-overview/options-overview.component';
 import { FL_MOCK_DATA } from 'src/assets/mocked-data/flexlunch.mock';
@@ -40,7 +42,9 @@ import { OptionDetailComponent } from './components/option-detail/option-detail.
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [{ provide: 'mock-data', useValue: FL_MOCK_DATA }],
   bootstrap: [AppComponent],
