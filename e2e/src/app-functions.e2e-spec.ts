@@ -1,16 +1,18 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('FlexLunch-App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should Logg in Peter', () => {
     page.navigateTo();
-    expect(page.getNavTitleText()).toEqual('FlexLunch');
+    page.setUsernameInInput();
+    page.getSubmitButton().click();
+    expect(page.getUserIdentifier()).toEqual('Eingeloggt als: Peter');
   });
 
   afterEach(async () => {
