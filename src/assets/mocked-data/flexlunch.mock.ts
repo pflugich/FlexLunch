@@ -1,7 +1,7 @@
 import { FlexLunch } from 'src/app/interfaces/flexlunch';
 
 export const FL_MOCK_DATA: FlexLunch = {
-  userName: '',
+  userName: 'Matthias',
   options: [
     {
       name: 'Fiducia Kantine',
