@@ -5,6 +5,9 @@ import { FlexLunch, Option, Time } from '../interfaces/flexlunch';
   providedIn: 'root'
 })
 export class OptionsService {
+  /** Name of the user */
+  private userName = '';
+
   constructor(@Inject('mock-data') private flData: FlexLunch) {}
 
   /**
@@ -39,5 +42,23 @@ export class OptionsService {
       return element.time === time;
     });
     return tempTime;
+  }
+
+  private manageUserName(): void {}
+
+  /**
+   * Sets the userName
+   * @param name The name to set as userName variable
+   */
+  private setUsername(name: string) {
+    this.userName = name;
+  }
+
+  /**
+   * Returns the userName variable
+   * @returns The Nme of the user
+   */
+  private getUserName(): string {
+    return this.userName;
   }
 }
