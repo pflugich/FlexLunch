@@ -2,9 +2,9 @@
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="nameToSet" [minlength]="1" />
+    <input matInput [(ngModel)]="nameToSet" [minlength]="1" #nameInput />
   </mat-form-field>
 </div>
-<div mat.dialog-actions>
-  <button mat-raised-button [mat-dialog-close]="nameToSet">Übernehmen</button>
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="nameToSet" [disabled]="nameInput.errorState">Übernehmen</button>
 </div>

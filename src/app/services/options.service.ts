@@ -2,13 +2,16 @@ import { Injectable, Inject } from '@angular/core';
 import { FlexLunch, Option, Time } from '../interfaces/flexlunch';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsernameInputComponent } from '../components/username-input/username-input.component';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OptionsService {
   /** Name of the user */
-  private userName = '';
+  public userName = '';
+
+  public userName$: Subject<string> = new Subject();
 
   /** The Reference to the Dialog containing the UsernameInputComponent */
   private nameDialogRef: MatDialogRef<UsernameInputComponent>;
@@ -59,6 +62,7 @@ export class OptionsService {
       this.nameDialogRef = this.dialog.open(UsernameInputComponent);
       this.nameDialogRef.afterClosed().subscribe(result => {
         this.setUsername(result);
+        this.userName$.next(result);
       });
     }
   }

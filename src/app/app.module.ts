@@ -11,15 +11,24 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatIconModule
 } from '@angular/material';
 import { OptionsOverviewComponent } from './components/options-overview/options-overview.component';
 import { FL_MOCK_DATA } from 'src/assets/mocked-data/flexlunch.mock';
 import { UsernameInputComponent } from './components/username-input/username-input.component';
 import { FormsModule } from '@angular/forms';
+import { OptionSelectComponent } from './components/options-overview/option-select/option-select.component';
+import { OptionDetailComponent } from './components/option-detail/option-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, OptionsOverviewComponent, UsernameInputComponent],
+  declarations: [
+    AppComponent,
+    OptionsOverviewComponent,
+    UsernameInputComponent,
+    OptionSelectComponent,
+    OptionDetailComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,10 +39,11 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [{ provide: 'mock-data', useValue: FL_MOCK_DATA }],
   bootstrap: [AppComponent],
-  entryComponents: [UsernameInputComponent]
+  entryComponents: [UsernameInputComponent, OptionDetailComponent]
 })
 export class AppModule {}
