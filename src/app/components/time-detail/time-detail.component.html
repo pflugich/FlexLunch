@@ -1,0 +1,16 @@
+<div class="detail-time">
+  <div class="readable-details">
+    <div class="details-plus-option">
+      <p>Zu fuß: {{ detailtime.walk.length }}</p>
+      <button mat-raised-button>Mitgehen</button>
+    </div>
+    <div class="details-plus-option">
+      <p>Mit dem Rad: {{ detailtime.bike.length }}</p>
+      <button mat-raised-button>Mitfahren</button>
+    </div>
+    <div *ngIf="detailtime.bus" class="details-plus-option">
+      <p>Im Shuttle belegte Plätze: {{ detailtime.bus?.passangers.length }} von {{ detailtime.bus?.capacity }}</p>
+      <button mat-raised-button>Einsteigen</button>
+    </div>
+  </div>
+</div>

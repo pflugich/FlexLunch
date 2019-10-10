@@ -1,15 +1,17 @@
 <div class="options-container" *ngFor="let option of options">
-  <mat-expansion-panel>
+  <mat-expansion-panel class="fl-expansion-panel-body">
     <mat-expansion-panel-header>
       <p>{{ option.name }}</p></mat-expansion-panel-header
     >
 
     <a [href]="option.url">{{ option.url }}</a>
-    <mat-card *ngFor="let time of option.times">
-      <mat-card-title>
+    <mat-expansion-panel class="fl-expansion-panel-body" *ngFor="let time of option.times">
+      <mat-expansion-panel-header>
         {{ time.time }}
-      </mat-card-title>
-      <mat-card-content> </mat-card-content>
-    </mat-card>
+      </mat-expansion-panel-header>
+      <mat-card>
+        <fl-time-detail [detailTime]="time"></fl-time-detail>
+      </mat-card>
+    </mat-expansion-panel>
   </mat-expansion-panel>
 </div>

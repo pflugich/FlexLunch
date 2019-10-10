@@ -22,6 +22,7 @@ import { UsernameInputComponent } from './components/username-input/username-inp
 import { FormsModule } from '@angular/forms';
 import { OptionSelectComponent } from './components/options-overview/option-select/option-select.component';
 import { OptionDetailComponent } from './components/option-detail/option-detail.component';
+import { TimeDetailComponent } from './components/time-detail/time-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { OptionDetailComponent } from './components/option-detail/option-detail.
     OptionsOverviewComponent,
     UsernameInputComponent,
     OptionSelectComponent,
-    OptionDetailComponent
+    OptionDetailComponent,
+    TimeDetailComponent
   ],
   imports: [
     BrowserModule,

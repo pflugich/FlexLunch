@@ -1,0 +1,10 @@
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px;
+}
+
+.details-plus-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 5px;
+}

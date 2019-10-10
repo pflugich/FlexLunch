@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Option } from 'src/app/interfaces/flexlunch';
@@ -10,19 +10,18 @@ import { OptionsService } from 'src/app/services/options.service';
   styleUrls: ['./option-detail.component.scss']
 })
 export class OptionDetailComponent implements OnInit {
-  activatedRout$$: Subscription;
   optionName = '';
-  option: Option;
+
+  @Input()
+  set detailOption(value: Option) {
+    this.detailoption = value;
+  }
+  get detailOption(): Option {
+    return this.detailoption;
+  }
+  detailoption: Option;
 
   constructor(private activatedRoute: ActivatedRoute, private optionsService: OptionsService) {}
 
-  ngOnInit() {
-    this.activatedRout$$ = this.activatedRoute.params.subscribe(result => {
-      if (result) {
-        console.log(result);
-        this.optionName = result.name;
-        this.option = this.optionsService.getOption(result.name);
-      }
-    });
-  }
+  ngOnInit() {}
 }
