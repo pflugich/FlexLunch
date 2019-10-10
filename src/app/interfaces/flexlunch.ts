@@ -1,4 +1,5 @@
 export interface FlexLunch {
+  userName: string;
   options: Option[];
 }
 
