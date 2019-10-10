@@ -1,5 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { FlexLunch, Option, Time } from '../interfaces/flexlunch';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { UsernameInputComponent } from '../components/username-input/username-input.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,12 @@ export class OptionsService {
   /** Name of the user */
   private userName = '';
 
-  constructor(@Inject('mock-data') private flData: FlexLunch) {}
+  /** The Reference to the Dialog containing the UsernameInputComponent */
+  private nameDialogRef: MatDialogRef<UsernameInputComponent>;
+
+  constructor(@Inject('mock-data') private flData: FlexLunch, private dialog: MatDialog) {
+    this.manageUserName();
+  }
 
   /**
    * Returns all Options available
@@ -44,7 +51,17 @@ export class OptionsService {
     return tempTime;
   }
 
-  private manageUserName(): void {}
+  /**
+   * Function to manage the userName Variable. Will ask for user name if non is set.
+   */
+  private manageUserName(): void {
+    if (this.userName.length === 0) {
+      this.nameDialogRef = this.dialog.open(UsernameInputComponent);
+      this.nameDialogRef.afterClosed().subscribe(result => {
+        this.setUsername(result);
+      });
+    }
+  }
 
   /**
    * Sets the userName
@@ -52,6 +69,7 @@ export class OptionsService {
    */
   private setUsername(name: string) {
     this.userName = name;
+    console.log(`User name set to ${this.userName}`);
   }
 
   /**

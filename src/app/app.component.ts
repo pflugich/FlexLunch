@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OptionsService } from './services/options.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'FlexLunch';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private optionsService: OptionsService) {}
 
   ngOnInit(): void {
-    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    // Add 'implements OnInit' to the class.
     this.router.navigate(['options-overview']);
   }
 }
